@@ -1,0 +1,72 @@
+THE APPLICATION: backup9.sh
+
+This is a bash script to create backups of the user documents of a linux system.  
+The backup medium is a Flash Drive.  For convenience, a copy of the backup is allowed
+to persist on the hard disk.  It endeavours to backup only a single tree from your
+linux system, presumeably your data; not your system files.  By default, the tree is
+/home/yourName/Documents.  Restricting the backup to only your data economizes.  
+
+If you install an application in a place other than /home/yourName/Documents, it will
+not be part of your backup.  Presumeably if you ever need to re-install an application
+you can obtain it from the original source; so there is presumeably no need to use
+resources to backup applications, linux itself, or other parts of your "system".
+
+If there is something within your "system" that you might consider to be "data" and 
+you want to have it backed up, just put it under the same tree that contains the 
+rest of your data.  For example, bash scripts that you authored might be kept at 
+/home/yourName/Documents/bashscripts instead of at /usr/bin
+
+WHY YOU MIGHT WANT TO USE THIS BACKUP APPLICATION:
+
+1. It is very simple.
+2. It is transparent because it is merely a bash script.
+3. It uses trusted tools such as tar and rsync.
+4. It does not do incremental backups which might be inconvenient or opaque.
+5. It leaves a copy of the backup on the hard disk for convenience.  
+6. It can be invoked by cron.
+7. It endeavours to backup only your data; not your system. 
+8. Backups can also be manually copied from the hard disk to any medium other than
+   the default Flash Drive.
+
+TO INSTALL THIS BACKUP APPLICATION, FIRST MAKE IT EXECUTABLE:
+
+chmod +x backup9.sh
+
+TO RUN THIS BACKUP APPLICATION, RUN THIS SCRIPT AS FOLLOWS:
+
+./backup9.sh
+
+WHAT WILL HAPPEN WHEN YOU RUN THIS BACKUP APPLICATION:
+
+On linux your folder which is named "/home/yourName/Documents" will be backed up to 
+a place called "home/yourName/backups".
+
+The backup will be a .tgz file, which means that it is both a tar archive and that it has
+been gzipped.  tar is the original UNIX utility for archives.  gzipping makes the file
+more compact.  Your newly created backup will have a file name that contains the
+date and time stamp.  That backup and any others previously created will be backed up
+to a Flash Drive at /media/usbFlash
+
+A listing of the contents of the backup will be placed in /home/yourName/backup.log 
+
+This backup application will cause every backup in /home/yourName/backups to be 
+automatically be duplicated on the Flash Drive.  The Flash Drive will eventually become full.
+
+From time to time, you should consider deleting older backups from the folder
+/home/yourName/backups because failure to do so will cause the Flash Drive to become
+full.  Of course a more cautious policy is to move older backups to some other backup
+medium for more permanent archive storage.  This backup application will not help you do
+that.  This backup application will only copy what is in /home/yourName/backups
+to /media/usbFlash
+
+To restore data from a backup, you can use a date and time stamped backup .tgz file from 
+either /home/yourName/backups or from /media/usbFlash
+
+A linux GUI tool such as Nautilus will be able to open and provide access to the data 
+within the date and time stamped .tgz file that is your backup archive.
+
+THE AUTHOR:
+
+brian.lim.ca@gmail.com
+
+
