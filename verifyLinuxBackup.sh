@@ -1,14 +1,17 @@
 #!/bin/bash
 # You can run this from anywhere.
-# The one and only argument is the name of the medium at /media/...
+# The context will be ~/Desktop
+# Set and export MEDIAPATH="/media/UserName" before running this script.
 # The purpose of this script is to compare the hard disk to the removeable medium.
 
 BACKUPDIRECTORY=Backups
+VOLUMELABEL=Flash
+VOLUMEPATH="$MEDIAPATH"/"$VOLUMELABEL"
 
 diffMethod() {
   echo "start of diffs..."
   # option -r is recursive
-  diff -r ~/"$BACKUPDIRECTORY" /media/"$1"
+  diff -r ~/"$BACKUPDIRECTORY" "$VOLUMEPATH"
   echo " "
   echo "END of diffs."
 }
@@ -16,16 +19,18 @@ diffMethod() {
 pushd ~/Desktop
 
 echo "The Volume Label is:"
-echo "$1" 
+echo "$VOLUMELABEL" 
 echo "Press any key to continue or Ctrl-C to abort."
 read key
 
-if [ ! -d /media/"$1" ]
-then
-  printf "\nThe media was not found.\n"
+if [ -d "$VOLUMEPATH" ]; then
+  echo "destination detected"
 else
-  diffMethod "$1"
+  echo "destination not detected"
+  exit 1
 fi
+
+diffMethod 
 
 popd
 

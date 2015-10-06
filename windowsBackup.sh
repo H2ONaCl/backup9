@@ -9,6 +9,9 @@ LOGFILE=WindowsBackup.log
 clear
 echo "backup script is starting..."
 echo ""
+echo "export MEDIAPATH before invoking this script"
+echo "example: export MEDIAPATH=/media/UserName"
+echo ""
 echo "the backup can run from anywhere"
 echo "the backup will pushd ~/ and popd"
 echo ""
@@ -19,7 +22,7 @@ echo ""
 echo "press the Enter key to continue."
 read key
 
-if [ -d /media/"$FLASHVOLUMELABEL" ]; then
+if [ -d "$MEDIAPATH"/"$FLASHVOLUMELABEL" ]; then
   echo "destination detected"
 else
   echo "destination not detected"
@@ -42,11 +45,13 @@ pushd ~/Desktop
 echo "pwd:"
 pwd
 
-# remove old files by date, starting with the 3rd newest, remove the 3rd and any older
+# remove old backup files by date, starting with the 2nd newest, remove the 2nd and any older
 # use rm -f so that it will not complain if there are no files to be deleted
 read -p "press the Enter key to delete some of the older *tgz files" key
-ls -t ~/"$BACKUPS"/*tgz | gawk 'NR>=3' | xargs rm -f
+ls -t ~/"$BACKUPS"/*tgz | gawk 'NR>=2' | xargs rm -f
 
+# count the lines in the log file and store the result as a string
+# then delete the log file
 if [ -f ~/"$LOGFILE" ]; then
   PREVIOUSLINECOUNT=`wc --lines ~/"$LOGFILE"`
 else
@@ -86,7 +91,7 @@ tar --create --verbose --preserve-permissions --gzip --file=/tmp/"$FILENAME" \
 
 echo "end of tar operation."
 echo ""
-echo -e -n "\x07" # interpret escape, no newline
+echo -e -n "\x07" # interpret escape sequence, no newline, console bell
 
 echo "the tarball has been created."
 
@@ -111,7 +116,7 @@ echo ""
 echo "Moving the tarball from /tmp to "$BACKUPS"."
 mv /tmp/"$FILENAME" ~/"$BACKUPS"
 
-printf "syncing to the removable USB Flash device.\n"
+printf "syncing to the removable USB Flash drive.\n"
 # here we clean up with the delete option.  
 # NB: the --dirs means send not only files but also non-recursively the directories
 # NB: use of delete option requires the use of --dirs
@@ -119,13 +124,13 @@ printf "syncing to the removable USB Flash device.\n"
 rsync --compress --dirs --delete \
 --times --perms --owner --group \
 --progress \
-~/"$BACKUPS"/ /media/"$FLASHVOLUMELABEL"
+~/"$BACKUPS"/ "$MEDIAPATH"/"$FLASHVOLUMELABEL"
 
-printf "the backup has been copied to the USB Flash device.\n\n"
+printf "the backup has been copied to the USB Flash drive.\n\n"
 
-printf "performing a diff to verify the copy on the USB Flash device.\n\n"
+printf "performing a diff to verify the new backup file on the USB Flash drive.\n\n"
 
-diff ~/"$BACKUPS"/"$FILENAME" /media/"$FLASHVOLUMELABEL"/"$FILENAME"
+diff ~/"$BACKUPS"/"$FILENAME" "$MEDIAPATH"/"$FLASHVOLUMELABEL"/"$FILENAME"
 
 printf "end of diff.\n\n"
 
