@@ -9,7 +9,7 @@ WHY YOU MIGHT WANT TO USE THIS BACKUP APPLICATION:
 * It is transparent because it is a bash script that relies upon the venerable tools tar and rsync.
 * It does not do incremental backups which might be inconvenient or opaque.
 * It leaves a copy of the backup on the hard disk for convenience. 
-* It can be invoked by cron.
+* It can be easily modified to be invoked by cron. Just remove the pauses for human response.
 * It endeavours to backup only your data; not your system. 
 
 This application is a bash script to create backups of a single directory tree, for example your ~/Documents. Restricting the backup to only your data, not your programs, economizes. 
