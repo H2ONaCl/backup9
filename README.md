@@ -47,25 +47,31 @@ THE ONE-TIME PREPARATION OF THE BACKUP MEDIUM IS TO LABEL THE FLASH DRIVE AS
 "Flash" FOR LINUX OR "WindowsFlash" FOR WINDOWS. 
 
 TO INSTALL THIS BACKUP APPLICATION, FIRST MAKE IT EXECUTABLE:
+
 chmod +x linuxBackup.sh
 
 The equivalent for Windows is 
+
 chmod +x windowsBackup.sh
 
 TO INSTALL THE BACKUP APPLICATION JUST LEAVE IT ANYWHERE THAT CAN BE FOUND IN YOUR PATH ENVIRONMENT VARIABLE OR MODIFY THE ENVIRONMENT VARIABLE.
 
 TO RUN THIS BACKUP APPLICATION, INSERT THE FLASH DRIVE, THEN RUN THE SCRIPT AS FOLLOWS:
+
 ./linuxBackup.sh
 
 For backing-up Windows it is 
+
 ./windowsBackup.sh
 
 The backup will be a .tgz file, which means that it is both a tar archive and that it has been gzipped.  tar is the original UNIX utility for making an archive. gzipping makes the file more compact.  Your newly created backup will have a file name that contains the date and time stamp.
 
 A listing of the contents of the backup will be placed in 
+
 ~/Backup.log 
 
 For backing-up Windows it is 
+
 ~/WindowsBackup.log
 
 By default the 2 most recent backups are retained on ~/Backups or ~/WindowsBackups and the most recently used Flash drive will have the same files. If you need to keep much older backups you can employ a set of Flash drives and recycle them.
