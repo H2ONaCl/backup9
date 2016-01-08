@@ -86,7 +86,7 @@ Example invocations:
 ./verifyWindowsBackup.sh 
 
 AUXILIARY SCRIPTS ARE PROVIDED TO MIRROR THE BACKUPS TO THE REMOVABLE STORAGE DEVICE
-These scripts do not create backup files. They merely take the files that were already created and "mirror" or "sync" them to the destination that is the removable storage device. To mirror or sync means to copy to the destination and to delete from the destination what is not at the source. Since the regular backup scripts already sync to the destination, you may not likely find a need for these auxiliary scripts.
+These scripts do not create backup files. They merely take the files that were already created and "mirror" or "sync" them to the destination that is the removable storage device. To mirror or sync means to copy to the destination and to delete from the destination what is not at the source. Since the backup scripts already sync to the destination, you may not likely find a need for these auxiliary scripts.
 
 Example invocations:
 
