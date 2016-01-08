@@ -5,15 +5,14 @@ A linux backup script for your data; not your system and settings.
 
 WHY YOU MIGHT WANT TO USE THIS BACKUP APPLICATION:
 
-* It is very simple.
-* It is transparent because it is a bash script.
-* It relies upon the venerable tools tar and rsync.
+* The backups are stored in a Flash drive removable storage device.
+* It is transparent because it is a bash script that relies upon the venerable tools tar and rsync.
 * It does not do incremental backups which might be inconvenient or opaque.
 * It leaves a copy of the backup on the hard disk for convenience. 
 * It can be invoked by cron.
 * It endeavours to backup only your data; not your system. 
 
-This application is a bash script to create backups of a single directory tree, for example your ~/Documents. The backup medium is a Flash drive. Restricting the backup to only your data, not your programs, economizes. 
+This application is a bash script to create backups of a single directory tree, for example your ~/Documents. Restricting the backup to only your data, not your programs, economizes. 
 
 If there is something within your "system" that you might consider to be "data" and you want to have it backed up, just put it under the same tree that contains the rest of your data.  For example, bash scripts that you authored might be kept at ~/Documents/bashscripts instead of at /usr/bin
 
@@ -71,14 +70,15 @@ For backing-up Windows it is
 
 By default the 2 most recent backups are retained on ~/Backups or ~/WindowsBackups and the most recently used Flash drive will have the same files. If you need to keep much older backups you can employ a set of Flash drives and recycle them.
 
-SCRIPTS ARE PROVIDED TO VERIFY THE ENTIRE FLASH DISK
+AUXILIARY SCRIPTS ARE PROVIDED TO VERIFY THE ENTIRE REMOVABLE STORAGE DEVICE
+Since the backup scripts already verify the most recent backup archive file, you may not likely find a need for these auxiliary scripts.
 
 Example invocations:
 ./verifyLinuxBackup.sh 
 ./verifyWindowsBackup.sh 
 
 AUXILIARY SCRIPTS ARE PROVIDED TO MIRROR THE BACKUPS TO THE REMOVABLE STORAGE DEVICE
-These scripts do not create backup files. They merely take the files that were already created and "mirror" or "sync" them to the destination that is the removable storage device. To mirror or sync means to copy to the destination and to delete at the destination what is not at the source. 
+These scripts do not create backup files. They merely take the files that were already created and "mirror" or "sync" them to the destination that is the removable storage device. To mirror or sync means to copy to the destination and to delete from the destination what is not at the source. Since the regular backup scripts already sync to the destination, you may not likely find a need for these auxiliary scripts.
 
 Example invocation:
 ./linuxBackupPartial.sh
