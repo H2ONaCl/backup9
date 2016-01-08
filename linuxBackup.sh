@@ -45,6 +45,13 @@ pushd ~/Desktop
 echo "pwd:"
 pwd
 
+if [ -d ~/"$BACKUPS" ]; then
+    echo "Directory "$BACKUPS" exists so we will use it."
+else
+    echo "Directory "$BACKUPS" does not exist so we will create it."
+    mkdir ~/"$BACKUPS"
+fi
+
 # remove old backup files by date, starting with the 2nd newest, remove the 2nd and any older
 # use rm -f so that it will not complain if there are no files to be deleted
 read -p "press the Enter key to delete some of the older *tgz files" key
@@ -104,15 +111,6 @@ NEWLINECOUNT=`wc --lines ~/"$LOGFILE"`
 echo "new line count "$NEWLINECOUNT""
 
 echo ""
-
-if [ -d ~/"$BACKUPS" ]; then
-    echo "Directory "$BACKUPS" exists so we will use it."
-else
-    echo "Directory "$BACKUPS" does not exist so we will create it."
-    mkdir ~/"$BACKUPS"
-fi
-
-echo ""
 echo "Moving the tarball from /tmp to "$BACKUPS"."
 mv /tmp/"$FILENAME" ~/"$BACKUPS"
 
@@ -128,9 +126,9 @@ rsync --compress --dirs --delete \
 
 printf "the backup has been copied to the USB Flash drive.\n\n"
 
-printf "performing a diff to verify the new backup file on the USB Flash drive.\n\n"
+printf "performing a binary compare to verify the new backup file on the USB Flash drive.\n\n"
 
-diff ~/"$BACKUPS"/"$FILENAME" "$MEDIAPATH"/"$FLASHVOLUMELABEL"/"$FILENAME"
+cmp ~/"$BACKUPS"/"$FILENAME" "$MEDIAPATH"/"$FLASHVOLUMELABEL"/"$FILENAME"
 
 printf "end of diff.\n\n"
 

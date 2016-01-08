@@ -3,6 +3,8 @@
 # The context will be ~/Desktop
 # Set and export MEDIAPATH="/media/UserName" before running this script.
 # The purpose of this script is to compare the hard disk to the removeable medium.
+#
+# This script uses diff instead of cmp because diff has recursion.
 
 BACKUPDIRECTORY=Backups
 VOLUMELABEL=Flash

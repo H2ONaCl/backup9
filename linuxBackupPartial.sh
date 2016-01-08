@@ -16,6 +16,9 @@ echo "usage:"
 echo "    scriptname.sh             is used to invoke from a terminal"
 echo "    scriptname.sh cron        is used to invoke an unattended run"
 echo ""
+echo "    The purpose of this script is to sync the backups to the removable storage device.
+echo "    To sync is to copy to the destination and delete at the destination what is not at the source."
+echo ""
 echo "press the Enter key to continue."
 read key
 
