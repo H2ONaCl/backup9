@@ -74,12 +74,16 @@ AUXILIARY SCRIPTS ARE PROVIDED TO VERIFY THE ENTIRE REMOVABLE STORAGE DEVICE
 Since the backup scripts already verify the most recent backup archive file, you may not likely find a need for these auxiliary scripts.
 
 Example invocations:
+
 ./verifyLinuxBackup.sh 
+
 ./verifyWindowsBackup.sh 
 
 AUXILIARY SCRIPTS ARE PROVIDED TO MIRROR THE BACKUPS TO THE REMOVABLE STORAGE DEVICE
 These scripts do not create backup files. They merely take the files that were already created and "mirror" or "sync" them to the destination that is the removable storage device. To mirror or sync means to copy to the destination and to delete from the destination what is not at the source. Since the regular backup scripts already sync to the destination, you may not likely find a need for these auxiliary scripts.
 
-Example invocation:
+Example invocations:
+
 ./linuxBackupPartial.sh
+
 ./windowsBackupPartial.sh
