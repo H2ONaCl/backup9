@@ -25,7 +25,7 @@ From that content the backup script will write a new timestamped backup to
 
 ~/Backups
 
-The timestamped backups will be mirrored on the Flash drive.
+The timestamped backups will be "mirrored" or "synchronized" to the Flash drive. To mirror or sync means to copy to the destination and to delete from the destination what is not at the source.
 
 This application also includes a bash script to backup a single directory tree of a guest operating system. For example, if linux is running VirtualBox and a Windows guest, then the guest can leave data at the single directory tree 
 
@@ -48,31 +48,25 @@ THE ONE-TIME PREPARATION OF THE BACKUP MEDIUM IS TO LABEL THE FLASH DRIVE AS
 "Flash" FOR LINUX OR "WindowsFlash" FOR WINDOWS. 
 
 TO INSTALL THIS BACKUP APPLICATION, FIRST MAKE IT EXECUTABLE:
-
 chmod +x linuxBackup.sh
 
 The equivalent for Windows is 
-
 chmod +x windowsBackup.sh
 
 TO INSTALL THE BACKUP APPLICATION JUST LEAVE IT ANYWHERE THAT CAN BE FOUND IN YOUR PATH ENVIRONMENT VARIABLE OR MODIFY THE ENVIRONMENT VARIABLE.
 
 TO RUN THIS BACKUP APPLICATION, INSERT THE FLASH DRIVE, THEN RUN THE SCRIPT AS FOLLOWS:
-
 ./linuxBackup.sh
 
-The equivalent for Windows is 
-
+For backing-up Windows it is 
 ./windowsBackup.sh
 
 The backup will be a .tgz file, which means that it is both a tar archive and that it has been gzipped.  tar is the original UNIX utility for making an archive. gzipping makes the file more compact.  Your newly created backup will have a file name that contains the date and time stamp.
 
 A listing of the contents of the backup will be placed in 
-
 ~/Backup.log 
 
-The equivalent for Windows is 
-
+For backing-up Windows it is 
 ~/WindowsBackup.log
 
 By default the 2 most recent backups are retained on ~/Backups or ~/WindowsBackups and the most recently used Flash drive will have the same files. If you need to keep much older backups you can employ a set of Flash drives and recycle them.
@@ -80,8 +74,12 @@ By default the 2 most recent backups are retained on ~/Backups or ~/WindowsBacku
 SCRIPTS ARE PROVIDED TO VERIFY THE ENTIRE FLASH DISK
 
 Example invocations:
-
 ./verifyLinuxBackup.sh 
-
 ./verifyWindowsBackup.sh 
 
+AUXILIARY SCRIPTS ARE PROVIDED TO MIRROR THE BACKUPS TO THE REMOVABLE STORAGE DEVICE
+These scripts do not create backup files. They merely take the files that were already created and "mirror" or "sync" them to the destination that is the removable storage device. To mirror or sync means to copy to the destination and to delete at the destination what is not at the source. 
+
+Example invocation:
+./linuxBackupPartial.sh
+./windowsBackupPartial.sh
