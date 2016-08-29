@@ -41,6 +41,7 @@ else
   read -p "press the Enter key to change folder to ~/Desktop" key
 fi
 
+# execute on the desktop so that litter is obvious
 pushd ~/Desktop
 echo "pwd:"
 pwd
@@ -126,11 +127,11 @@ rsync --compress --dirs --delete \
 
 printf "the backup has been copied to the USB Flash drive.\n\n"
 
-printf "performing a binary compare to verify the new backup file on the USB Flash drive.\n\n"
+printf "performing a binary comparison to verify the new backup file on the USB Flash drive.\n\n"
 
 cmp ~/"$BACKUPS"/"$FILENAME" "$MEDIAPATH"/"$FLASHVOLUMELABEL"/"$FILENAME"
 
-printf "end of diff.\n\n"
+printf "end of binary comparison.\n\n"
 
 printf "end of backup script.\n"
 
