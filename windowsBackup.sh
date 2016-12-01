@@ -29,6 +29,8 @@ else
   exit 1
 fi
 
+sudo chown -R "$USER":"$USER" "$MEDIAPATH"/"$FLASHVOLUMELABEL"
+
 if [ -n "$1" ] && [ "$1" == "cron" ]; then
   cronflag="true"
 else
