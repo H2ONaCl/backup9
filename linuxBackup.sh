@@ -99,7 +99,7 @@ FILENAME="$FILENAMEROOT"$DATETIME".tgz"
 tar --create --verbose --preserve-permissions --gzip --file=/tmp/"$FILENAME" \
 ~/"$SOURCE"
 
-echo "end of tar operation."
+echo "end of tar operation. NOTE THAT tar REMOVED ALL LEADING FORWARD SLASHES TO MAKE RELATIVE PATHS."
 echo ""
 echo -e -n "\x07" # interpret escape sequence, no newline, console bell
 
