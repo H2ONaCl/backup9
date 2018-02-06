@@ -11,9 +11,9 @@ WHY YOU MIGHT WANT TO USE THIS BACKUP APPLICATION:
 * It can be easily modified to be invoked by cron. Just remove the pauses for a human response.
 * It endeavours to backup only your data; not your system. 
 
-This application is a bash script to create backups of a single directory tree, for example your ~/Documents. Restricting the backup to only your data, not your programs, economizes. 
+This application is a bash script to create backups of a single directory tree, for example your ~/Documents. Restricting the backup to only your data, not your third-party application programs, economizes. 
 
-If there is something within your "system" that you might consider to be "data" and you want to have it backed up, just put it under the same tree that contains the rest of your data.  For example, bash scripts that you authored might be kept at ~/Documents/bashscripts instead of at /usr/bin
+If there is something within your system that you might consider to be "data" and you want to have it backed up, just put it in the same tree that contains the rest of your data.  For example, source code you authored should be in ~/Documents and bash scripts that you authored might be kept at ~/Documents/bashscripts instead of at /usr/bin
 
 By default, the single directory tree is 
 
