@@ -43,7 +43,9 @@ is a matter for you to decide. One suggestion is to configure VirtualBox to "see
 the linux drive and then use Windows' robocopy.exe.
 
 THE ONE-TIME PREPARATION OF THE BACKUP MEDIUM IS TO FIRST LABEL THE FLASH DRIVE AS "Flash" FOR LINUX OR "WindowsFlash" FOR WINDOWS. SECONDLY GRANT OWNERSHIP TO userName OF THE DESTINATION DIRECTORY VIA ONE OF THE FOLLOWING COMMANDS.
+
 sudo chown -R userName:userName /media/brian/Flash
+
 sudo chown -R userName:userName /media/brian/WindowsFlash
 
 TO INSTALL THIS BACKUP APPLICATION, FIRST MAKE IT EXECUTABLE:
