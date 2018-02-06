@@ -1,6 +1,6 @@
 backup9
 =======
-A linux backup for your data; not your system and settings.
+A Linux backup for your data; not your system and settings and third-party applications.
 
 WHY YOU MIGHT WANT TO USE THIS BACKUP APPLICATION:
 
