@@ -4,7 +4,7 @@ A linux backup for your data; not your system and settings.
 
 WHY YOU MIGHT WANT TO USE THIS BACKUP APPLICATION:
 
-* The backups are stored in a Flash drive removable storage device.
+* The backups are stored in a Flash drive removable storage device (or ideally a recycling set of such devices).
 * It is transparent because it is a bash script that relies upon the venerable tools tar and rsync.
 * It does not do incremental backups which might be inconvenient or opaque.
 * It leaves a copy of the backup on the hard disk for convenience. 
