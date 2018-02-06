@@ -76,7 +76,7 @@ For backing-up Windows it is
 
 ~/WindowsBackup.log
 
-By default the 2 most recent backups are retained on ~/Backups or ~/WindowsBackups and the most recently used Flash drive will have the same files. If you need to keep much older backups you can employ a set of Flash drives and recycle them.
+By default the 2 most recent backups are retained on ~/Backups or ~/WindowsBackups and the most recently used Flash drive will have the same files. If you need to keep older backups you can employ a set of Flash drives and recycle them.
 
 AUXILIARY SCRIPTS ARE PROVIDED TO VERIFY THE ENTIRE REMOVABLE STORAGE DEVICE
 Since the backup scripts already verify the most recent backup archive file, you may not likely find a need for these auxiliary scripts.
