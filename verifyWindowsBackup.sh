@@ -12,8 +12,7 @@ VOLUMEPATH="$MEDIAPATH"/"$VOLUMELABEL"
 
 diffMethod() {
   echo "start of diffs..."
-  # option -r is recursive
-  diff -r ~/"$BACKUPDIRECTORY" "$VOLUMEPATH"
+  diff --recursive --brief ~/"$BACKUPDIRECTORY" "$VOLUMEPATH"
   echo " "
   echo "END of diffs."
 }
